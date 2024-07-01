@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love You Too</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+  }
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('bg.jpg'); /* Replace with your background image URL */
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(5px); /* Adjust blur as needed */
+    opacity: 1; /* 60% opacity for the background image */
+    z-index: -1; /* Ensure the background is behind other content */
+  }
+
+  .heading-container {
+    position: absolute;
+    top: 25%;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure the heading is above the hearts */
+    text-align: center;
+  }
+
+  h1 {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 4em; /* Increased font size */
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: neon-animation 2.5s ease-in-out infinite alternate; /* Neon animation */
+  }
+
+  @keyframes neon-animation {
+    0% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                   0 0 20px #ffffff, 
+                   0 0 30px #ffffff, 
+                   0 0 40px #ffffff, 
+                   0 0 70px #ffffff, 
+                   0 0 80px #fefefe, 
+                   0 0 100px #ffffff, 
+                   0 0 150px #ffffff;
+    }
+  }
+
+  .heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 0; /* Ensure the hearts are behind the heading */
+  }
+
+  .heart {
+    position: absolute;
+    top: 10px; /* Adjusted top position */
+    color: red;
+    font-size: 1em;
+    opacity: 1;
+    user-select: none;
+    pointer-events: none;
+    text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  /* Button styling */
+  .glow-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 25px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+
+  .glow-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 0;
+    transition: width 0.5s ease, height 0.5s ease;
+  }
+
+  .glow-btn:hover::before {
+    width: 0;
+    height: 0;
+  }
+
+  /* Neon effect on hover */
+  .glow-btn:hover {
+    color: #fff;
+    background-color: #ff0000;
+    box-shadow: 0 0 40px #e90303, 0 0 80px #ff0000, 0 0 120px #ff0505, 0 0 200px #fe1313;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 3.5em; /* Adjusted font size for smaller screens */
+    }
+  }
+</style>
+</head>
+<body>
+<div class="background"></div>
+<div class="heading-container">
+  <h1>I Love You Too</h1>
+  <a href="https://www.instagram.com/roshansharm.aa" target="_blank" class="glow-btn">Let's Chat</a>
+</div>
+<div class="heart-container">
+  <script>
+    const numHearts = 80;
+
+    for (let i = 0; i < numHearts; i++) {
+      let heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's'; // Fall speed
+      heart.style.fontSize = Math.random() * 6 + 7 + 'px'; // Size of heart
+      heart.style.top = '-' + (Math.random() * 20 + 10) + 'px'; // Start position above the viewport
+      heart.innerHTML = '&#10084;'; // Unicode for heart
+
+      document.querySelector('.heart-container').appendChild(heart);
+    }
+  </script>
+</div>
+</body>
+</html>
