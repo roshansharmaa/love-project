@@ -1,3 +1,19 @@
+this is a Love project for frends you can allso check this on this link "https://66827865556142038169bd8e--soft-daifuku-ba6b06.netlify.app/"
+
+lokk previeew
+![Screenshot 2024-07-01 155253](https://github.com/roshansharmaa/love-project/assets/122720379/7f0cbb9b-e4bb-43e2-bf03-b3a87ac173f0)
+
+
+
+
+
+
+
+///reun this projec check for the react setup is installed
+and then run in terminal run npm i
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
